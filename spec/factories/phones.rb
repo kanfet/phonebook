@@ -5,4 +5,9 @@ FactoryGirl.define do
     name {Faker::Name.name}
     number {Faker::PhoneNumber.phone_number}
   end
+
+  factory :invalid_phone, class: Phone do
+    name nil
+    number {Faker::PhoneNumber.phone_number}
+  end
 end
