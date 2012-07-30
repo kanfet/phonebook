@@ -1,0 +1,21 @@
+.row
+  .span6
+    = link_to "Download phonebook", download_phones_path, class: "btn"
+  .span6
+    = form_tag upload_phones_path, method: :post, :multipart => true, id: "upload-form", class: "form-inline" do
+      = button_tag "Upload phonebook", type: :submit, class: "btn"
+      = file_field :upload, :phonebook, class: "input-file"
+
+%hr
+.row
+  .span4
+    %strong Name
+  .span4
+    %strong Number
+  .span4
+
+= render 'form', phone: Phone.new
+
+#phones
+  - @phones.each do |phone|
+    = render 'phone', phone: phone

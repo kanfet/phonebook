@@ -1,4 +1,12 @@
 Phonebook::Application.routes.draw do
+
+  resources :phones, except: [:new] do
+    get :download, :on => :collection
+    post :upload, :on => :collection
+  end
+
+  root to: "phones#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

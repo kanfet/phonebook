@@ -1,0 +1,5 @@
+<% if @phone.errors.any? %>
+  $('#phone<%= @phone.id %>').html('<%= j(render 'form', phone: @phone) %>');
+<% else %>
+  $('#phone<%= @phone.id %>').html('<%= j(render 'phone', phone: @phone) %>');
+<% end %>

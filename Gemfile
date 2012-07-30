@@ -44,4 +44,5 @@ gem "haml-rails"
 group :test, :development do
   gem "rspec-rails", "~> 2.10.1"
   gem "factory_girl_rails", "~> 3.2.0"
+  gem "faker", "~> 1.0.1"
 end

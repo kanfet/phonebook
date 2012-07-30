@@ -1,0 +1,16 @@
+%div
+  %hr
+  .row
+    = form_for phone, remote: true, html: {class: "form-inline"} do |f|
+      .span4
+        = f.text_field :name, "placeholder" => "Enter name"
+        %span.help-inline{style: "color: #B94A48;"}= phone.errors.get(:name).join(', ') if phone.errors.include?(:name)
+      .span4
+        = f.text_field :number, "placeholder" => "Enter number"
+      .span4
+        .pull-right
+          - if phone.new_record?
+            = f.button "Add", type: "submit", class: "btn btn-primary"
+          - else
+            = f.button "Save", type: "submit", class: "btn btn-primary"
+            = link_to "Cancel", phone_path(phone), remote: true, class: "btn"

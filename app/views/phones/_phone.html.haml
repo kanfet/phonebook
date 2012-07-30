@@ -1,0 +1,10 @@
+%div{id: "phone#{phone.id}"}
+  %hr
+  .row
+    .span4= phone.name
+    .span4= !phone.number.blank? ? phone.number : "&nbsp;".html_safe
+    .span4
+      .pull-right
+        = link_to "Edit", edit_phone_path(phone), remote: true, class: "btn btn-success"
+        = link_to "Destroy", phone_path(phone), method: :delete, remote: true, |
+          class: "btn btn-danger", confirm: "Are you sure?"

@@ -1,0 +1,6 @@
+<% if @phone.errors.any? %>
+  $('#new_phone').parent('.row').parent().replaceWith('<%= j(render 'form', phone: @phone) %>');
+<% else %>
+  $('#new_phone').parent('.row').parent().replaceWith('<%= j(render 'form', phone: Phone.new) %>');
+  $('#phones').append('<%= j(render 'phone', phone: @phone) %>');
+<% end %>
