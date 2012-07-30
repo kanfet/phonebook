@@ -2,7 +2,7 @@ class Phone < ActiveRecord::Base
 
   attr_accessible :name, :number
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   def self.to_text
     Phone.all.map{ |phone| "#{phone.name}\t#{phone.number}" }.join("\r\n")
